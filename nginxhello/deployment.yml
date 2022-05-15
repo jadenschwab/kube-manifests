@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginxhello
 spec:
-  replicas: 80
+  replicas: 10
   selector:
     matchLabels:
       pod-label: nginxhello
@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
         - name: nginxhello
-          image: nginxdemos/helloworld
+          image: nginxdemos/hello
