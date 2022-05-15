@@ -8,4 +8,7 @@ spec:
   ports:
     - protocol: TCP
       port: 25565
+  env:
+    - name: EULA
+      value: true
   type: LoadBalancer
