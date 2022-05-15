@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginxhello-server
+  labels:
+    app: nginxhello
+spec:
+  replicas: 80
+  selector:
+    matchLabels:
+      pod-label: nginxhello
+  template:
+    metadata:
+      labels:
+        pod-label: nginxhello
+    spec:
+      containers:
+        - name: nginxhello
+          image: nginxdemos/helloworld
