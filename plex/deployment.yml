@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plex
+  labels:
+    app: plex
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod-label: plex
+  template:
+    metadata:
+      labels:
+        pod-label: plex
+    spec:
+      containers:
+        - name: plex
+          image: lscr.io/linuxserver/plex:latest
+          env:
+          - name: PUID
+            value: 1000
+          - name: PGID
+            value: 1000
+          - name: VERSION
+            value: docker
+          - name: PLEX_CLAIM
+            value: claim-vHAc993bgafBsjZGM38W
+
+          volumeMounts:
+            - name: config
+            persistantVolumeClaim:
+              claimName: plex-pvc
+            - name: media
+              persistantVolumeClaim:
+                claimName: plex-smb
