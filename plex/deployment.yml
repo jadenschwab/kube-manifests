@@ -17,20 +17,22 @@ spec:
       containers:
         - name: plex
           image: lscr.io/linuxserver/plex:latest
-          env:
-          - name: PUID
-            value: 1000
-          - name: PGID
-            value: 1000
-          - name: VERSION
-            value: docker
-          - name: PLEX_CLAIM
-            value: claim-vHAc993bgafBsjZGM38W
-
           volumeMounts:
             - name: config
-            persistantVolumeClaim:
-              claimName: plex-pvc
+              mountPath: /config
             - name: media
-              persistantVolumeClaim:
-                claimName: plex-smb
+              mountPath: /plexmedia
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: VERSION
+              value: docker
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+         claimName: plex-pvc
+      - name: media
+        persistentVolumeClaim:
+         claimName: plex-media
