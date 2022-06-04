@@ -23,6 +23,10 @@ spec:
           env:
             - name: EULA
               value: "true"
+            - name: TYPE
+              value: "PAPER"
+            - name: PAPERBUILD
+              value: "372"
       volumes:
       - name: storage
         persistentVolumeClaim:
