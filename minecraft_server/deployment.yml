@@ -25,8 +25,8 @@ spec:
               value: "true"
             - name: TYPE
               value: "PAPER"
-            - name: PAPERBUILD
-              value: "372"
+            - name: PAPER_DOWNLOAD_URL
+              value: "https://api.papermc.io/v2/projects/paper/versions/1.18.2/builds/372/downloads/paper-1.18.2-372.jar"
       volumes:
       - name: storage
         persistentVolumeClaim:
