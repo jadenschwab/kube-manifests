@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: minecraft
-          image: itzg/minecraft-server
+          image: itzg/minecraft-server:2022.7.0-java17-jdk
           volumeMounts:
             - name: storage
               mountPath: /data
